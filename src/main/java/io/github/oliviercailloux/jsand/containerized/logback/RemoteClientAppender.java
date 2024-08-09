@@ -20,8 +20,8 @@ public class RemoteClientAppender extends AppenderBase<ILoggingEvent> {
     Registry registryJ1;
     try {
       registryJ1 = LocateRegistry.getRegistry(JSand.REGISTRY_HOST, Registry.REGISTRY_PORT);
-      remoteLogger = (RemoteLoggerService)registryJ1.lookup(JSand.LOGGER_SERVICE_NAME);
-    } catch (RemoteException|NotBoundException e) {
+      remoteLogger = (RemoteLoggerService) registryJ1.lookup(JSand.LOGGER_SERVICE_NAME);
+    } catch (RemoteException | NotBoundException e) {
       throw new RuntimeException(e);
     }
     super.start();
@@ -56,7 +56,8 @@ public class RemoteClientAppender extends AppenderBase<ILoggingEvent> {
     String message = event.getMessage();
     Object[] argumentArray = event.getArgumentArray();
     try {
-      remoteLogger.log(originalLoggerName, slfLevel, Instant.ofEpochMilli(timeStamp), message, argumentArray);
+      remoteLogger.log(originalLoggerName, slfLevel, Instant.ofEpochMilli(timeStamp), message,
+          argumentArray);
     } catch (RemoteException e) {
       throw new IllegalStateException(e);
     }

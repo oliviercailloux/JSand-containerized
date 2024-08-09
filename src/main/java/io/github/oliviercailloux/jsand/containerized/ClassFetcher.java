@@ -6,15 +6,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ClassFetcher extends ClassLoader {
-@SuppressWarnings("unused")
-private static final Logger LOGGER = LoggerFactory.getLogger(ClassFetcher.class);
+  @SuppressWarnings("unused")
+  private static final Logger LOGGER = LoggerFactory.getLogger(ClassFetcher.class);
 
   private ClassSenderService sender;
 
   public ClassFetcher(ClassSenderService sender) {
     this.sender = sender;
   }
-
 
   @Override
   public Class<?> findClass(String name) throws ClassNotFoundException {

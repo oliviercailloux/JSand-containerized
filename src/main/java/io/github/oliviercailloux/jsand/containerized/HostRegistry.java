@@ -14,7 +14,7 @@ public class HostRegistry {
   public static HostRegistry access() throws RemoteException {
     return new HostRegistry(JSand.REGISTRY_HOST, Registry.REGISTRY_PORT);
   }
-  
+
   private final Registry registry;
 
   public HostRegistry(String host, int port) throws RemoteException {
@@ -27,10 +27,10 @@ public class HostRegistry {
   }
 
   public ReadyService readyService() throws RemoteException, NotBoundException {
-    return (ReadyService)registry.lookup(JSand.READY_SERVICE_NAME);
+    return (ReadyService) registry.lookup(JSand.READY_SERVICE_NAME);
   }
 
   public ClassSenderService classSenderService() throws RemoteException, NotBoundException {
-    return (ClassSenderService)registry.lookup(JSand.CLASS_SENDER_SERVICE_NAME);
+    return (ClassSenderService) registry.lookup(JSand.CLASS_SENDER_SERVICE_NAME);
   }
 }
