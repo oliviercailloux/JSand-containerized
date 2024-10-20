@@ -17,7 +17,7 @@ public class HostRegistry {
 
   private final Registry registry;
 
-  public HostRegistry(String host, int port) throws RemoteException {
+  private HostRegistry(String host, int port) throws RemoteException {
     checkNotNull(host);
     registry = LocateRegistry.getRegistry(host, port);
   }

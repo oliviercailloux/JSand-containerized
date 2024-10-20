@@ -9,9 +9,13 @@ public class ClassFetcher extends ClassLoader {
   @SuppressWarnings("unused")
   private static final Logger LOGGER = LoggerFactory.getLogger(ClassFetcher.class);
 
+  public static ClassLoader create(ClassSenderService sender) {
+    return new ClassFetcher(sender);
+  }
+
   private ClassSenderService sender;
 
-  public ClassFetcher(ClassSenderService sender) {
+  private ClassFetcher(ClassSenderService sender) {
     this.sender = sender;
   }
 
